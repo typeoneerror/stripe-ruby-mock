@@ -366,7 +366,8 @@ module StripeMock
         default_tax_rates: nil,
         default_payment_method: nil,
         pending_invoice_item_interval: nil,
-        next_pending_invoice_item_invoice: nil
+        next_pending_invoice_item_invoice: nil,
+        latest_invoice: nil,
       }, params)
     end
 
@@ -415,7 +416,8 @@ module StripeMock
         next_payment_attempt: 1349825350,
         charge: nil,
         discount: nil,
-        subscription: nil
+        subscription: nil,
+        payment_intent: nil,
       }.merge(params)
       if invoice[:discount]
         invoice[:total] = [0, invoice[:subtotal] - invoice[:discount][:coupon][:amount_off]].max if invoice[:discount][:coupon][:amount_off]
